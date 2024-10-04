@@ -6,7 +6,7 @@ const StringCalculator: React.FC = () => {
   const [result, setResult] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value);
   };
 
@@ -24,12 +24,12 @@ const StringCalculator: React.FC = () => {
   return (
     <div className="p-4 max-w-md mx-auto">
       <h1 className="text-2xl font-bold mb-4">String Calculator</h1>
-      <input
-        type="text"
+        <textarea
         value={input}
         onChange={handleInputChange}
         placeholder="Enter numbers (e.g., 1,2,3)"
-        className="w-full p-2 border rounded mb-2"
+        className="w-full p-2 border rounded mb-2 h-32 resize-y"
+        rows={2}
       />
       <button
         onClick={handleCalculate}
@@ -46,5 +46,4 @@ const StringCalculator: React.FC = () => {
     </div>
   );
 };
-
 export default StringCalculator;
