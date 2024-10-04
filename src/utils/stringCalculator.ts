@@ -13,7 +13,9 @@ export function add(numbers: string): number {
   }
 
   const nums = numberString.split(delimiter).map(str => {
-    const num = Number(str.trim());
+    // Remove quotes if present
+    const trimmed = str.trim().replace(/^"(.*)"$/, '$1');
+    const num = Number(trimmed);
     if (isNaN(num)) {
       throw new Error(`Invalid number: ${str}`);
     }
